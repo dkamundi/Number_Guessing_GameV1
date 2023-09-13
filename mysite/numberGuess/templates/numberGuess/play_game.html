@@ -1,0 +1,13 @@
+<!-- templates/game/play_game.html -->
+{% block content %}
+<h2>Number Guessing Game</h2>
+<p>Guess a number between 0 and 100:</p>
+<form method="post">
+  {% csrf_token %}
+  <input type="number" name="guess" min="0" max="100" />
+  <button type="submit">Submit Guess</button>
+</form>
+<p>Attempts left: {{ game_session.attempts }} / 10</p>
+<p>Guesses made: {{ game_session.guesses }}</p>
+<p>{{ feedback }}</p>
+{% endblock %}
