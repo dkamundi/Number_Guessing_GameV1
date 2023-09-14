@@ -7,6 +7,8 @@ from .forms import UserRegistrationForm, UserLoginForm
 from .models import GameSession
 import random
 
+# Import UserRegistrationForm and UserLoginForm from the forms module
+
 from .forms import UserRegistrationForm, UserLoginForm
 
 def register(request):
@@ -19,6 +21,8 @@ def register(request):
         form = UserRegistrationForm()
     return render(request, 'numberGuess/register.html', {'form': form})
 
+# Registration view - handles user registration using UserRegistrationForm
+
 def login_view(request):
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
@@ -29,6 +33,8 @@ def login_view(request):
     else:
         form = UserLoginForm()
     return render(request, 'numberGuess/login.html', {'form': form})
+
+# Login view - handles user login using UserLoginForm
 
 @login_required
 def play_game(request):
